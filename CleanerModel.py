@@ -13,8 +13,9 @@ class Agents(mesa.Agent):
     def step(self):
         if self.model.dirtyCellRatio() >= .999:
             self.model.endTime = time.time()
-        self.move()
-        self.clean()
+        else:
+            self.move()
+            self.clean()
 
     def move(self):
         possible_steps = self.model.grid.get_neighborhood(
